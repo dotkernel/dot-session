@@ -7,12 +7,12 @@
  * Time: 8:24 PM
  */
 
-namespace DotKernelTest\DotSession;
+namespace DotTest\Session;
 
 
 /**
  * Class SessionMiddlewareTest
- * @package DotKernelTest\DotSession
+ * @package DotTest\Session
  */
 class SessionMiddlewareTest extends \PHPUnit_Framework_TestCase
 {

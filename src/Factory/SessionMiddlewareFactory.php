@@ -7,18 +7,18 @@
  * Time: 8:24 PM
  */
 
-namespace DotKernel\DotSession\Factory;
+namespace Dot\Session\Factory;
 
 
-use DotKernel\DotSession\Options\SessionOptions;
-use DotKernel\DotSession\SessionMiddleware;
+use Dot\Session\Options\SessionOptions;
+use Dot\Session\SessionMiddleware;
 use Interop\Container\ContainerInterface;
 use Zend\Session\Container;
 use Zend\Session\ManagerInterface;
 
 /**
  * Class SessionMiddlewareFactory
- * @package DotKernel\DotSession\Factory
+ * @package Dot\Session\Factory
  */
 class SessionMiddlewareFactory
 {

@@ -7,17 +7,17 @@
  * Time: 8:24 PM
  */
 
-namespace DotKernel\DotSession;
+namespace Dot\Session;
 
-use DotKernel\DotSession\Factory\SessionOptionsFactory;
-use DotKernel\DotSession\Factory\SessionMiddlewareFactory;
-use DotKernel\DotSession\Options\SessionOptions;
+use Dot\Session\Factory\SessionMiddlewareFactory;
+use Dot\Session\Factory\SessionOptionsFactory;
+use Dot\Session\Options\SessionOptions;
 use Zend\Session\Storage\SessionArrayStorage;
 use Zend\Stdlib\ArrayUtils;
 
 /**
  * Class ConfigProvider
- * @package DotKernel\DotSession
+ * @package Dot\Session
  */
 class ConfigProvider
 {

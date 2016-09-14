@@ -7,12 +7,12 @@
  * Time: 8:24 PM
  */
 
-namespace DotKernel\DotSession\Exception;
+namespace Dot\Session\Exception;
 
 
 /**
  * Interface ExceptionInterface
- * @package DotKernel\DotSession\Exception
+ * @package Dot\Session\Exception
  */
 interface ExceptionInterface
 {

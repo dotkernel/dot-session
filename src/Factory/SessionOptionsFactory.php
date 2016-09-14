@@ -7,15 +7,15 @@
  * Time: 8:24 PM
  */
 
-namespace DotKernel\DotSession\Factory;
+namespace Dot\Session\Factory;
 
 
-use DotKernel\DotSession\Options\SessionOptions;
+use Dot\Session\Options\SessionOptions;
 use Interop\Container\ContainerInterface;
 
 /**
  * Class SessionOptionsFactory
- * @package DotKernel\DotSession\Factory
+ * @package Dot\Session\Factory
  */
 class SessionOptionsFactory
 {

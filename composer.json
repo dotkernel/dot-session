@@ -23,12 +23,12 @@
   },
   "autoload": {
     "psr-4": {
-      "DotKernel\\DotSession\\": "src/"
+      "Dot\\Session\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "DotKernelTest\\DotSession\\": "test/"
+      "DotTest\\Session\\": "test/"
     }
   },
   "extra": {

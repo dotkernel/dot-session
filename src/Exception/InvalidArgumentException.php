@@ -7,12 +7,12 @@
  * Time: 8:24 PM
  */
 
-namespace DotKernel\DotSession\Exception;
+namespace Dot\Session\Exception;
 
 
 /**
  * Class InvalidArgumentException
- * @package DotKernel\DotSession\Exception
+ * @package Dot\Session\Exception
  */
 class InvalidArgumentException extends \InvalidArgumentException implements ExceptionInterface
 {

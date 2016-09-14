@@ -7,14 +7,14 @@
  * Time: 8:24 PM
  */
 
-namespace DotKernel\DotSession\Options;
+namespace Dot\Session\Options;
 
 
 use Zend\Stdlib\AbstractOptions;
 
 /**
  * Class SessionOptions
- * @package DotKernel\DotSession\Options
+ * @package Dot\Session\Options
  */
 class SessionOptions extends AbstractOptions
 {

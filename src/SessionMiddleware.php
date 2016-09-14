@@ -7,9 +7,9 @@
  * Time: 8:24 PM
  */
 
-namespace DotKernel\DotSession;
+namespace Dot\Session;
 
-use DotKernel\DotSession\Options\SessionOptions;
+use Dot\Session\Options\SessionOptions;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Session\Container;
@@ -17,7 +17,7 @@ use Zend\Session\ManagerInterface;
 
 /**
  * Class SessionMiddleware
- * @package DotKernel\DotSession
+ * @package Dot\Session
  */
 class SessionMiddleware
 {
