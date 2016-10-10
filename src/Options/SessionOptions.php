@@ -9,7 +9,6 @@
 
 namespace Dot\Session\Options;
 
-
 use Zend\Stdlib\AbstractOptions;
 
 /**
@@ -18,7 +17,7 @@ use Zend\Stdlib\AbstractOptions;
  */
 class SessionOptions extends AbstractOptions
 {
-    /** @var string  */
+    /** @var string */
     protected $sessionNamespace = 'dot_session';
 
     /**

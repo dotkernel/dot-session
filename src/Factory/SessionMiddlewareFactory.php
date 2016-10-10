@@ -9,7 +9,6 @@
 
 namespace Dot\Session\Factory;
 
-
 use Dot\Session\Options\SessionOptions;
 use Dot\Session\SessionMiddleware;
 use Interop\Container\ContainerInterface;

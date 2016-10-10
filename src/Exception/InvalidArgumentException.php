@@ -9,7 +9,6 @@
 
 namespace Dot\Session\Exception;
 
-
 /**
  * Class InvalidArgumentException
  * @package Dot\Session\Exception

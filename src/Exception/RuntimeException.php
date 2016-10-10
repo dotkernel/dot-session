@@ -9,7 +9,6 @@
 
 namespace Dot\Session\Exception;
 
-
 /**
  * Class RuntimeException
  * @package Dot\Session\Exception

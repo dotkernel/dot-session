@@ -9,7 +9,6 @@
 
 namespace Dot\Session\Exception;
 
-
 /**
  * Interface ExceptionInterface
  * @package Dot\Session\Exception
