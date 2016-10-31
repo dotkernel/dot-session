@@ -34,10 +34,11 @@ class ConfigProvider
             ],
 
             'session_config' => [
-                'name' => 'DOT_SESSID',
+                //'name' => 'DOT_SESSID',
                 'remember_me_seconds' => 180,
                 'use_cookies' => true,
                 'cookie_httponly' => true,
+                'cookie_lifetime' => 180
             ],
 
             'session_manager' => [
