@@ -21,8 +21,6 @@ use Zend\Session\ManagerInterface;
  */
 class SessionMiddleware
 {
-    const SESSION_NAMESPACE = 'dot_session';
-
     /** @var  ManagerInterface */
     protected $defaultSessionManager;
 
@@ -53,7 +51,7 @@ class SessionMiddleware
         $this->defaultSessionManager->start();
         $container = new Container($this->options->getSessionNamespace());
 
-        $request = $request->withAttribute(self::SESSION_NAMESPACE, $container);
+        $request = $request->withAttribute($this->options->getSessionNamespace(), $container);
 
         return $next($request, $response);
     }

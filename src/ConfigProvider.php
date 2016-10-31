@@ -34,7 +34,7 @@ class ConfigProvider
             ],
 
             'session_config' => [
-                //'name' => 'DOT_SESSID',
+                'name' => 'DOTSESSID',
                 'remember_me_seconds' => 180,
                 'use_cookies' => true,
                 'cookie_httponly' => true,
