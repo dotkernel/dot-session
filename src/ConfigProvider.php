@@ -35,10 +35,10 @@ class ConfigProvider
 
             'session_config' => [
                 'name' => 'DOTSESSID',
-                'remember_me_seconds' => 180,
+                'remember_me_seconds' => 1800,
                 'use_cookies' => true,
                 'cookie_httponly' => true,
-                'cookie_lifetime' => 180
+                'cookie_lifetime' => 1800
             ],
 
             'session_manager' => [
