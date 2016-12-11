@@ -38,7 +38,8 @@ class ConfigProvider
                 'remember_me_seconds' => 3600,
                 'use_cookies' => true,
                 'cookie_httponly' => true,
-                'cookie_lifetime' => 3600
+                'cookie_lifetime' => 3600,
+                'gc_maxlifetime' => 3600,
             ],
 
             'session_manager' => [
