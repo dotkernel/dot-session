@@ -58,15 +58,17 @@ class SessionMiddleware
             $this->defaultSessionManager->start();
         }
         $_SESSION['LAST_ACTIVITY'] = time();
-        setcookie(
-            $config->getName(),
-            $this->defaultSessionManager->getId(),
-            time() + $config->getCookieLifetime(),
-            $config->getCookiePath(),
-            $config->getCookieDomain(),
-            $config->getCookieSecure(),
-            $config->getCookieHttpOnly()
-        );
+        if($config->getUseCookies()) {
+            setcookie(
+                $config->getName(),
+                $this->defaultSessionManager->getId(),
+                time() + $config->getCookieLifetime(),
+                $config->getCookiePath(),
+                $config->getCookieDomain(),
+                $config->getCookieSecure(),
+                $config->getCookieHttpOnly()
+            );
+        }
 
         $container = new Container($this->options->getSessionNamespace());
 
