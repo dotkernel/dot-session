@@ -20,6 +20,9 @@ class SessionOptions extends AbstractOptions
     /** @var string */
     protected $sessionNamespace = 'dot_session';
 
+    /** @var int  */
+    protected $rememberMeInactive = 1800;
+
     /**
      * @return string
      */
@@ -35,6 +38,24 @@ class SessionOptions extends AbstractOptions
     public function setSessionNamespace($sessionNamespace)
     {
         $this->sessionNamespace = $sessionNamespace;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRememberMeInactive()
+    {
+        return $this->rememberMeInactive;
+    }
+
+    /**
+     * @param int $rememberMeInactive
+     * @return SessionOptions
+     */
+    public function setRememberMeInactive($rememberMeInactive)
+    {
+        $this->rememberMeInactive = $rememberMeInactive;
         return $this;
     }
 

@@ -12,8 +12,9 @@ namespace Dot\Session;
 use Dot\Session\Options\SessionOptions;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Zend\Session\Config\SessionConfig;
 use Zend\Session\Container;
-use Zend\Session\ManagerInterface;
+use Zend\Session\SessionManager;
 
 /**
  * Class SessionMiddleware
@@ -21,7 +22,7 @@ use Zend\Session\ManagerInterface;
  */
 class SessionMiddleware
 {
-    /** @var  ManagerInterface */
+    /** @var  SessionManager */
     protected $defaultSessionManager;
 
     /** @var  SessionOptions */
@@ -29,10 +30,10 @@ class SessionMiddleware
 
     /**
      * SessionMiddleware constructor.
-     * @param ManagerInterface $sessionManager
+     * @param SessionManager $sessionManager
      * @param SessionOptions $options
      */
-    public function __construct(ManagerInterface $sessionManager, SessionOptions $options)
+    public function __construct(SessionManager $sessionManager, SessionOptions $options)
     {
         $this->defaultSessionManager = $sessionManager;
         $this->options = $options;
@@ -49,6 +50,23 @@ class SessionMiddleware
     {
         //start the session and insert a default container into the request object
         $this->defaultSessionManager->start();
+
+        /** @var SessionConfig $config */
+        $config = $this->defaultSessionManager->getConfig();
+        if(isset($_SESSION['LAST_ACTIVITY']) && time() - $_SESSION['LAST_ACTIVITY'] > $this->options->getRememberMeInactive()) {
+            $this->defaultSessionManager->destroy(['send_expire_cookie' => true]);
+            $this->defaultSessionManager->start();
+        }
+        $_SESSION['LAST_ACTIVITY'] = time();
+        setcookie(
+            $config->getName(),
+            $this->defaultSessionManager->getId(),
+            time() + $config->getCookieLifetime(),
+            $config->getCookiePath(),
+            $config->getCookieDomain(),
+            $config->getCookieSecure(),
+            $config->getCookieHttpOnly()
+        );
 
         $container = new Container($this->options->getSessionNamespace());
 

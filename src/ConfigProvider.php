@@ -31,15 +31,16 @@ class ConfigProvider
 
             'dot_session' => [
                 'session_namespace' => 'dot_session',
+                'remember_me_inactive' => 1800,
             ],
 
             'session_config' => [
                 'name' => 'DOTSESSID',
-                'remember_me_seconds' => 3600,
                 'use_cookies' => true,
                 'cookie_httponly' => true,
-                'cookie_lifetime' => 3600,
-                'gc_maxlifetime' => 3600,
+                'remember_me_seconds' => 1800,
+                'cookie_lifetime' => 1800,
+                'gc_maxlifetime' => 1800,
             ],
 
             'session_manager' => [
