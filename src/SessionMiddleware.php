@@ -49,8 +49,6 @@ class SessionMiddleware
     {
         //start the session and insert a default container into the request object
         $this->defaultSessionManager->start();
-        //reset cookie expiration time, notice it regenerates session id
-        $this->defaultSessionManager->rememberMe();
 
         $container = new Container($this->options->getSessionNamespace());
 
