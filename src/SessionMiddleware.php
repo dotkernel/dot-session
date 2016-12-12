@@ -54,7 +54,7 @@ class SessionMiddleware
         /** @var SessionConfig $config */
         $config = $this->defaultSessionManager->getConfig();
         if(isset($_SESSION['LAST_ACTIVITY']) && time() - $_SESSION['LAST_ACTIVITY'] > $this->options->getRememberMeInactive()) {
-            $this->defaultSessionManager->destroy(['send_expire_cookie' => true]);
+            $this->defaultSessionManager->destroy(['send_expire_cookie' => true, 'clear_storage' => true]);
             $this->defaultSessionManager->start();
         }
         $_SESSION['LAST_ACTIVITY'] = time();
