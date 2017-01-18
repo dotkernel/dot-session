@@ -20,7 +20,7 @@ class SessionOptions extends AbstractOptions
     /** @var string */
     protected $sessionNamespace = 'dot_session';
 
-    /** @var int  */
+    /** @var int */
     protected $rememberMeInactive = 1800;
 
     /**
@@ -58,5 +58,4 @@ class SessionOptions extends AbstractOptions
         $this->rememberMeInactive = $rememberMeInactive;
         return $this;
     }
-
 }
