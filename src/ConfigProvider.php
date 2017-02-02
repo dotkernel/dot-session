@@ -32,12 +32,11 @@ class ConfigProvider
             'dependencies' => $this->getDependencyConfig(),
 
             'dot_session' => [
-                'session_namespace' => 'dot_session',
                 'remember_me_inactive' => 1800,
             ],
 
             'session_config' => [
-                'name' => 'DOTSESSID',
+                'name' => 'DOT_SESSID',
                 'use_cookies' => true,
                 'cookie_httponly' => true,
                 'remember_me_seconds' => 1800,
@@ -46,21 +45,15 @@ class ConfigProvider
             ],
 
             'session_manager' => [
-                'validators' => [
-
-                ],
-                'options' => [
-
-                ],
+                'validators' => [],
+                'options' => [],
             ],
 
             'session_storage' => [
                 'type' => SessionArrayStorage::class,
             ],
 
-            'session_containers' => [
-
-            ],
+            'session_containers' => [],
         ];
     }
 
@@ -68,7 +61,7 @@ class ConfigProvider
      * Merge our config with Zend Session dependencies
      * @return array
      */
-    public function getDependencyConfig()
+    public function getDependencyConfig(): array
     {
         $zendSessionConfigProvider = new \Zend\Session\ConfigProvider();
         $config = [

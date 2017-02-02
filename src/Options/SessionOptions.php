@@ -19,27 +19,8 @@ use Zend\Stdlib\AbstractOptions;
  */
 class SessionOptions extends AbstractOptions
 {
-    /** @var string */
-    protected $sessionNamespace = 'dot_session';
-
     /** @var int */
     protected $rememberMeInactive = 1800;
-
-    /**
-     * @return string
-     */
-    public function getSessionNamespace(): string
-    {
-        return $this->sessionNamespace;
-    }
-
-    /**
-     * @param string $sessionNamespace
-     */
-    public function setSessionNamespace(string $sessionNamespace)
-    {
-        $this->sessionNamespace = $sessionNamespace;
-    }
 
     /**
      * @return int
