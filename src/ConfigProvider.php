@@ -7,6 +7,8 @@
  * Time: 8:24 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Session;
 
 use Dot\Session\Factory\SessionMiddlewareFactory;
@@ -24,7 +26,7 @@ class ConfigProvider
     /**
      * @return array
      */
-    public function __invoke()
+    public function __invoke(): array
     {
         return [
             'dependencies' => $this->getDependencyConfig(),
@@ -71,9 +73,7 @@ class ConfigProvider
         $zendSessionConfigProvider = new \Zend\Session\ConfigProvider();
         $config = [
             'factories' => [
-
                 SessionOptions::class => SessionOptionsFactory::class,
-
                 SessionMiddleware::class => SessionMiddlewareFactory::class,
             ],
         ];

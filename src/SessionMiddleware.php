@@ -7,6 +7,8 @@
  * Time: 8:24 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Session;
 
 use Dot\Session\Options\SessionOptions;
@@ -46,15 +48,19 @@ class SessionMiddleware
      * @param callable|null $next
      * @return mixed
      */
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
-    {
+    public function __invoke(
+        ServerRequestInterface $request,
+        ResponseInterface $response,
+        callable $next = null
+    ): ResponseInterface {
         //start the session and insert a default container into the request object
         $this->defaultSessionManager->start();
 
         /** @var SessionConfig $config */
         $config = $this->defaultSessionManager->getConfig();
         if (isset($_SESSION['LAST_ACTIVITY'])
-            && time() - $_SESSION['LAST_ACTIVITY'] > $this->options->getRememberMeInactive()) {
+            && time() - $_SESSION['LAST_ACTIVITY'] > $this->options->getRememberMeInactive()
+        ) {
             $this->defaultSessionManager->destroy(['send_expire_cookie' => true, 'clear_storage' => true]);
             $this->defaultSessionManager->start();
         }
@@ -70,10 +76,6 @@ class SessionMiddleware
                 $config->getCookieHttpOnly()
             );
         }
-
-        $container = new Container($this->options->getSessionNamespace());
-
-        $request = $request->withAttribute($this->options->getSessionNamespace(), $container);
 
         return $next($request, $response);
     }

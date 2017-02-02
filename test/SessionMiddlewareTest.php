@@ -9,7 +9,6 @@
 
 namespace DotTest\Session;
 
-
 /**
  * Class SessionMiddlewareTest
  * @package DotTest\Session
