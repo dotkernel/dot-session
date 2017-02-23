@@ -38,6 +38,7 @@ class ConfigProvider
             'session_config' => [
                 'name' => 'DOT_SESSID',
                 'use_cookies' => true,
+                'cookie_secure' => false,
                 'cookie_httponly' => true,
                 'remember_me_seconds' => 1800,
                 'cookie_lifetime' => 1800,
