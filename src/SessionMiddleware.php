@@ -73,7 +73,7 @@ class SessionMiddleware
                 $config->getCookiePath(),
                 $config->getCookieDomain(),
                 $config->getCookieSecure(),
-                $config->getCookieHttpOnly()
+                (bool) $config->getCookieHttpOnly()
             );
         }
 
