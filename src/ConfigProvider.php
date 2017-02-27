@@ -23,7 +23,6 @@ use Zend\Session\Service\StorageFactory;
 use Zend\Session\SessionManager;
 use Zend\Session\Storage\SessionArrayStorage;
 use Zend\Session\Storage\StorageInterface;
-use Zend\Stdlib\ArrayUtils;
 
 /**
  * Class ConfigProvider
