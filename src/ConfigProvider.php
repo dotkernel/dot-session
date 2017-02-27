@@ -11,10 +11,18 @@ declare(strict_types = 1);
 
 namespace Dot\Session;
 
+use Dot\Session\Factory\ContainerAbstractServiceFactory;
 use Dot\Session\Factory\SessionMiddlewareFactory;
 use Dot\Session\Factory\SessionOptionsFactory;
 use Dot\Session\Options\SessionOptions;
+use Zend\Session\Config\ConfigInterface;
+use Zend\Session\ManagerInterface;
+use Zend\Session\Service\SessionConfigFactory;
+use Zend\Session\Service\SessionManagerFactory;
+use Zend\Session\Service\StorageFactory;
+use Zend\Session\SessionManager;
 use Zend\Session\Storage\SessionArrayStorage;
+use Zend\Session\Storage\StorageInterface;
 use Zend\Stdlib\ArrayUtils;
 
 /**
@@ -64,14 +72,21 @@ class ConfigProvider
      */
     public function getDependencyConfig(): array
     {
-        $zendSessionConfigProvider = new \Zend\Session\ConfigProvider();
-        $config = [
+        return [
+            'aliases' => [
+                SessionManager::class => ManagerInterface::class,
+            ],
             'factories' => [
+                ConfigInterface::class => SessionConfigFactory::class,
+                ManagerInterface::class => SessionManagerFactory::class,
+                StorageInterface::class => StorageFactory::class,
+
                 SessionOptions::class => SessionOptionsFactory::class,
                 SessionMiddleware::class => SessionMiddlewareFactory::class,
             ],
+            'abstract_factories' => [
+                ContainerAbstractServiceFactory::class,
+            ]
         ];
-
-        return ArrayUtils::merge($config, $zendSessionConfigProvider->getDependencyConfig());
     }
 }
