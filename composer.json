@@ -1,7 +1,7 @@
 {
   "name": "dotkernel/dot-session",
   "type": "library",
-  "description": "Session library for DotKernel based on ZF3 session library",
+  "description": "Session library for DotKernel extending and customizing zend-session",
   "license": "MIT",
   "authors": [
     {
@@ -34,7 +34,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "0.6-dev"
+      "dev-master": "1.1-dev"
     }
   }
 }
