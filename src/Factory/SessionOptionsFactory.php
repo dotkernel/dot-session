@@ -7,6 +7,8 @@
  * Time: 8:24 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Session\Factory;
 
 use Dot\Session\Options\SessionOptions;

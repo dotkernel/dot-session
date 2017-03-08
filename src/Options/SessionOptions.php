@@ -7,6 +7,8 @@
  * Time: 8:24 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Session\Options;
 
 use Zend\Stdlib\AbstractOptions;
@@ -17,45 +19,22 @@ use Zend\Stdlib\AbstractOptions;
  */
 class SessionOptions extends AbstractOptions
 {
-    /** @var string */
-    protected $sessionNamespace = 'dot_session';
-
     /** @var int */
     protected $rememberMeInactive = 1800;
 
     /**
-     * @return string
-     */
-    public function getSessionNamespace()
-    {
-        return $this->sessionNamespace;
-    }
-
-    /**
-     * @param string $sessionNamespace
-     * @return SessionOptions
-     */
-    public function setSessionNamespace($sessionNamespace)
-    {
-        $this->sessionNamespace = $sessionNamespace;
-        return $this;
-    }
-
-    /**
      * @return int
      */
-    public function getRememberMeInactive()
+    public function getRememberMeInactive(): int
     {
         return $this->rememberMeInactive;
     }
 
     /**
      * @param int $rememberMeInactive
-     * @return SessionOptions
      */
-    public function setRememberMeInactive($rememberMeInactive)
+    public function setRememberMeInactive(int $rememberMeInactive)
     {
         $this->rememberMeInactive = $rememberMeInactive;
-        return $this;
     }
 }
