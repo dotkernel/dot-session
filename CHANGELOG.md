@@ -1,3 +1,24 @@
+## Unreleased(2.0.0)
+
+Migrate package to ZE2
+
+### Changed
+* Updated factories to use PSR11 container
+* SessionMiddleware implements PSR15 middleware
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Nothing
+
+### Fixed
+* Nothing
+
+
 ## 1.0.1 - 2017-03-11
 
 Updated php file headers doc blocks
