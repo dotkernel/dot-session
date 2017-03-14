@@ -10,6 +10,8 @@ declare(strict_types = 1);
 namespace Dot\Session;
 
 use Dot\Session\Options\SessionOptions;
+use Interop\Http\ServerMiddleware\DelegateInterface;
+use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Session\Config\SessionConfig;
@@ -20,7 +22,7 @@ use Zend\Session\SessionManager;
  * Class SessionMiddleware
  * @package Dot\Session
  */
-class SessionMiddleware
+class SessionMiddleware implements MiddlewareInterface
 {
     /** @var  SessionManager */
     protected $defaultSessionManager;
@@ -42,16 +44,11 @@ class SessionMiddleware
 
     /**
      * @param ServerRequestInterface $request
-     * @param ResponseInterface $response
-     * @param callable|null $next
-     * @return mixed
+     * @param DelegateInterface $delegate
+     * @return ResponseInterface
      */
-    public function __invoke(
-        ServerRequestInterface $request,
-        ResponseInterface $response,
-        callable $next = null
-    ): ResponseInterface {
-        //start the session and insert a default container into the request object
+    public function process(ServerRequestInterface $request, DelegateInterface $delegate): ResponseInterface
+    {
         $this->defaultSessionManager->start();
 
         /** @var SessionConfig $config */
@@ -75,6 +72,6 @@ class SessionMiddleware
             );
         }
 
-        return $next($request, $response);
+        return $delegate->process($request);
     }
 }
