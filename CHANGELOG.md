@@ -1,4 +1,4 @@
-## Unreleased(2.0.0)
+## 2.0.0 - 2017-03-15
 
 Migrate package to ZE2
 
