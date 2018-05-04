@@ -1,3 +1,25 @@
+## 3.0.0 - 2018-05-04
+
+Migrate package to ZE3
+
+### Changed
+* SessionMiddleware implements PSR15 middleware from package `psr/http-server-middleware`
+* Delegates are replaced with request handlers
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Nothing
+
+### Fixed
+* Nothing
+
+
+
 ## 2.0.0 - 2017-03-15
 
 Migrate package to ZE2

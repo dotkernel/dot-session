@@ -10,10 +10,10 @@ declare(strict_types = 1);
 namespace Dot\Session;
 
 use Dot\Session\Options\SessionOptions;
-use Interop\Http\ServerMiddleware\DelegateInterface;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\MiddlewareInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Session\Config\SessionConfig;
 use Zend\Session\Container;
 use Zend\Session\SessionManager;
@@ -44,13 +44,11 @@ class SessionMiddleware implements MiddlewareInterface
 
     /**
      * @param ServerRequestInterface $request
-     * @param DelegateInterface $delegate
+     * @param RequestHandlerInterface $handler
      * @return ResponseInterface
      */
-    public function process(ServerRequestInterface $request, DelegateInterface $delegate): ResponseInterface
+    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $this->defaultSessionManager->start();
-
         /** @var SessionConfig $config */
         $config = $this->defaultSessionManager->getConfig();
         if (isset($_SESSION['LAST_ACTIVITY'])
@@ -71,7 +69,6 @@ class SessionMiddleware implements MiddlewareInterface
                 (bool) $config->getCookieHttpOnly()
             );
         }
-
-        return $delegate->process($request);
+        return $handler->handle($request);
     }
 }
