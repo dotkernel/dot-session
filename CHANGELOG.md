@@ -1,4 +1,22 @@
-## 3.0.0 - 2018-05-04
+## 2.0.0 - 2020-01-30
+
+### Changed
+* Laminas and Mezzio migration.
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Support
+
+### Fixed
+* Nothing
+
+
+## 1.3.0 - 2018-05-04
 
 Migrate package to ZE3
 
@@ -20,7 +38,7 @@ Migrate package to ZE3
 
 
 
-## 2.0.0 - 2017-03-15
+## 1.2.0 - 2017-03-15
 
 Migrate package to ZE2
 

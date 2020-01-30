@@ -15,7 +15,7 @@ use Interop\Container\ContainerInterface;
  * Class ContainerAbstractServiceFactory
  * @package Dot\Session\Factory
  */
-class ContainerAbstractServiceFactory extends \Zend\Session\Service\ContainerAbstractServiceFactory
+class ContainerAbstractServiceFactory extends \Laminas\Session\Service\ContainerAbstractServiceFactory
 {
     const PREFIX = 'dot-session';
 

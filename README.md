@@ -1,3 +1,3 @@
 # dot-session
 
-DotKernel session component extending and customizing [zend-session](https://github.com/zendframework/zend-session)
+DotKernel session component extending and customizing [laminas-session](https://github.com/laminas/laminas-session)

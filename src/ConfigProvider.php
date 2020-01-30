@@ -13,14 +13,14 @@ use Dot\Session\Factory\ContainerAbstractServiceFactory;
 use Dot\Session\Factory\SessionMiddlewareFactory;
 use Dot\Session\Factory\SessionOptionsFactory;
 use Dot\Session\Options\SessionOptions;
-use Zend\Session\Config\ConfigInterface;
-use Zend\Session\ManagerInterface;
-use Zend\Session\Service\SessionConfigFactory;
-use Zend\Session\Service\SessionManagerFactory;
-use Zend\Session\Service\StorageFactory;
-use Zend\Session\SessionManager;
-use Zend\Session\Storage\SessionArrayStorage;
-use Zend\Session\Storage\StorageInterface;
+use Laminas\Session\Config\ConfigInterface;
+use Laminas\Session\ManagerInterface;
+use Laminas\Session\Service\SessionConfigFactory;
+use Laminas\Session\Service\SessionManagerFactory;
+use Laminas\Session\Service\StorageFactory;
+use Laminas\Session\SessionManager;
+use Laminas\Session\Storage\SessionArrayStorage;
+use Laminas\Session\Storage\StorageInterface;
 
 /**
  * Class ConfigProvider
@@ -64,7 +64,7 @@ class ConfigProvider
     }
 
     /**
-     * Merge our config with Zend Session dependencies
+     * Merge our config with Laminas Session dependencies
      * @return array
      */
     public function getDependencyConfig(): array

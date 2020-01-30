@@ -12,8 +12,8 @@ namespace Dot\Session\Factory;
 use Dot\Session\Options\SessionOptions;
 use Dot\Session\SessionMiddleware;
 use Psr\Container\ContainerInterface;
-use Zend\Session\Container;
-use Zend\Session\ManagerInterface;
+use Laminas\Session\Container;
+use Laminas\Session\ManagerInterface;
 
 /**
  * Class SessionMiddlewareFactory
