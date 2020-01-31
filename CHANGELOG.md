@@ -4,13 +4,13 @@
 * Laminas and Mezzio migration.
 
 ### Added
-* Nothing
+* Added Laminas dependencies
 
 ### Deprecated
 * Nothing
 
 ### Removed
-* Support
+* Removed Zend packages dependencies
 
 ### Fixed
 * Nothing
