@@ -1,3 +1,42 @@
+## 5.0.1 - 2020-09-09
+
+### Changed
+* CHANGELOG.md
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Nothing
+
+### Fixed
+* Nothing
+
+
+### 5.0 - 2020-09-09
+
+### Changed
+* SessionMiddleware.php 
+* SessionMiddlewareFactory.php
+* ConfigProvider.php
+
+### Added
+* AutoLoginMiddleware.php
+* AutoLoginMiddlewareFactory.php
+
+### Deprecated
+* Nothing
+
+### Removed
+* Nothing
+
+### Fixed
+* Nothing
+
+
 ## 4.1.0 - 2020-04-27
 
 ### Changed
