@@ -9,11 +9,16 @@ declare(strict_types = 1);
 
 namespace Dot\Session\Factory;
 
+use Doctrine\ORM\EntityManager;
+use Dot\Session\Exception\RuntimeException;
 use Dot\Session\Options\SessionOptions;
 use Dot\Session\SessionMiddleware;
+use Laminas\Authentication\AuthenticationService;
 use Psr\Container\ContainerInterface;
 use Laminas\Session\Container;
 use Laminas\Session\ManagerInterface;
+use Laminas\Log\Logger;
+
 
 /**
  * Class SessionMiddlewareFactory
@@ -32,8 +37,9 @@ class SessionMiddlewareFactory
             : Container::getDefaultManager();
 
         $options = $container->get(SessionOptions::class);
-
-        $middleware = new SessionMiddleware($sessionManager, $options);
-        return $middleware;
+        return new SessionMiddleware(
+            $sessionManager,
+            $options
+        );
     }
 }

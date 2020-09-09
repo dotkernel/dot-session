@@ -9,6 +9,7 @@ declare(strict_types = 1);
 
 namespace Dot\Session;
 
+use Dot\Session\Factory\AutoLoginMiddlewareFactory;
 use Dot\Session\Factory\ContainerAbstractServiceFactory;
 use Dot\Session\Factory\SessionMiddlewareFactory;
 use Dot\Session\Factory\SessionOptionsFactory;
@@ -35,21 +36,7 @@ class ConfigProvider
     {
         return [
             'dependencies' => $this->getDependencyConfig(),
-
-            'dot_session' => [
-                'remember_me_inactive' => 1800,
-            ],
-
-            'session_config' => [
-                'name' => 'DOT_SESSID',
-                'use_cookies' => true,
-                'cookie_secure' => false,
-                'cookie_httponly' => true,
-                'remember_me_seconds' => 1800,
-                'cookie_lifetime' => 1800,
-                'gc_maxlifetime' => 1800,
-            ],
-
+            
             'session_manager' => [
                 'validators' => [],
                 'options' => [],
@@ -80,6 +67,7 @@ class ConfigProvider
 
                 SessionOptions::class => SessionOptionsFactory::class,
                 SessionMiddleware::class => SessionMiddlewareFactory::class,
+                AutoLoginMiddleware::class => AutoLoginMiddlewareFactory::class,
             ],
             'abstract_factories' => [
                 ContainerAbstractServiceFactory::class,
