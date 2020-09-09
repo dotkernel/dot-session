@@ -1,3 +1,20 @@
+## 5.0.2 - 2020-09-09
+
+### Changed
+* composer.json
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* extra dev branches
+
+### Fixed
+* Nothing
+
 ## 5.0.1 - 2020-09-09
 
 ### Changed
