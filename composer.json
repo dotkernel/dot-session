@@ -2,12 +2,13 @@
     "name": "dotkernel/dot-session",
     "type": "library",
     "description": "DotKernel session component extending and customizing laminas-session",
+    "license": "MIT",
+    "homepage": "https://github.com/dotkernel/dot-session",
     "keywords": [
         "session",
         "laminas",
         "middleware"
     ],
-    "license": "MIT",
     "authors": [
         {
             "name": "DotKernel Team",
@@ -18,9 +19,9 @@
         "php": "^7.4",
         "psr/http-message": "^1.0.1",
         "laminas/laminas-servicemanager": "^3.4.0",
-        "laminas/laminas-session": "^2.9.3",
+        "laminas/laminas-session": "^2.10",
         "psr/http-server-middleware": "^1.0.1",
-        "laminas/laminas-dependency-plugin": "^1.0.3"
+        "laminas/laminas-dependency-plugin": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.1.3",
@@ -30,11 +31,6 @@
     "autoload": {
         "psr-4": {
             "Dot\\Session\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "DotTest\\Session\\": "test/"
         }
     }
 }
