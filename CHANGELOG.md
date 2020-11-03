@@ -1,3 +1,22 @@
+## 5.1.0 - 2020-11-03
+
+### Changed
+* Composer 2 compatibility.
+* Update composer.json to require version 2 of laminas/laminas-dependency-plugin to be Composer 2 compatible.
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Nothing
+
+### Fixed
+* bump min version of laminas/laminas-dependency-plugin
+* bump min version of laminas/laminas-session
+
 ## 5.0.2 - 2020-09-09
 
 ### Changed
