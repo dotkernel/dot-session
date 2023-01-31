@@ -67,7 +67,6 @@ class ConfigProvider
 
                 SessionOptions::class => SessionOptionsFactory::class,
                 SessionMiddleware::class => SessionMiddlewareFactory::class,
-                AutoLoginMiddleware::class => AutoLoginMiddlewareFactory::class,
             ],
             'abstract_factories' => [
                 ContainerAbstractServiceFactory::class,
