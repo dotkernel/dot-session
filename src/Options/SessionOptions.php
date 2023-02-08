@@ -27,4 +27,12 @@ class SessionOptions extends AbstractOptions
     {
         return $this->rememberMeInactive;
     }
+
+    /**
+     * @param int $rememberMeInactive
+     */
+    public function setRememberMeInactive(int $rememberMeInactive)
+    {
+        $this->rememberMeInactive = $rememberMeInactive;
+    }
 }

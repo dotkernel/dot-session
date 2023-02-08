@@ -53,13 +53,13 @@ class SessionMiddleware implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $now = time();
-        if (isset($_SESSION['LAST_ACTIVITY'])
-            && $now - $_SESSION['LAST_ACTIVITY'] > $this->options->getRememberMeInactive()
+        if (isset($this->defaultSessionManager->getStorage()['LAST_ACTIVITY'])
+            && $now - $this->defaultSessionManager->getStorage()['LAST_ACTIVITY'] > $this->options->getRememberMeInactive()
         ) {
             $this->defaultSessionManager->destroy(['send_expire_cookie' => true, 'clear_storage' => true]);
             $this->defaultSessionManager->start();
         }
-        $_SESSION['LAST_ACTIVITY'] = $now;
+        $this->defaultSessionManager->getStorage()['LAST_ACTIVITY'] = $now;
         return $handler->handle($request);
     }
 }

@@ -9,7 +9,6 @@ declare(strict_types = 1);
 
 namespace Dot\Session;
 
-use Dot\Session\Factory\AutoLoginMiddlewareFactory;
 use Dot\Session\Factory\ContainerAbstractServiceFactory;
 use Dot\Session\Factory\SessionMiddlewareFactory;
 use Dot\Session\Factory\SessionOptionsFactory;
