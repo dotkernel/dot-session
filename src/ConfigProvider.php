@@ -9,7 +9,6 @@ declare(strict_types = 1);
 
 namespace Dot\Session;
 
-use Dot\Session\Factory\AutoLoginMiddlewareFactory;
 use Dot\Session\Factory\ContainerAbstractServiceFactory;
 use Dot\Session\Factory\SessionMiddlewareFactory;
 use Dot\Session\Factory\SessionOptionsFactory;
@@ -67,7 +66,6 @@ class ConfigProvider
 
                 SessionOptions::class => SessionOptionsFactory::class,
                 SessionMiddleware::class => SessionMiddlewareFactory::class,
-                AutoLoginMiddleware::class => AutoLoginMiddlewareFactory::class,
             ],
             'abstract_factories' => [
                 ContainerAbstractServiceFactory::class,

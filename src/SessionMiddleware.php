@@ -9,23 +9,13 @@ declare(strict_types = 1);
 
 namespace Dot\Session;
 
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Mapping\Entity;
 use Dot\Session\Options\SessionOptions;
-use Frontend\User\Entity\User;
-use Frontend\User\Entity\UserToken;
-use Frontend\User\Repository\UserRepository;
-use Frontend\User\Repository\UserTokenRepository;
-use Laminas\Authentication\AuthenticationServiceInterface;
-use Laminas\Log\Logger;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Laminas\Session\Config\SessionConfig;
 use Laminas\Session\Container;
 use Laminas\Session\SessionManager;
-use Exception;
 
 /**
  * Class SessionMiddleware
@@ -33,7 +23,6 @@ use Exception;
  */
 class SessionMiddleware implements MiddlewareInterface
 {
-    const REMEMBER_ME_YES = "1";
 
     /** @var  SessionManager */
     protected $defaultSessionManager;
@@ -64,13 +53,13 @@ class SessionMiddleware implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $now = time();
-        if (isset($_SESSION['LAST_ACTIVITY'])
-            && $now - $_SESSION['LAST_ACTIVITY'] > $this->options->getRememberMeInactive()
+        if (isset($this->defaultSessionManager->getStorage()['LAST_ACTIVITY'])
+            && $now - $this->defaultSessionManager->getStorage()['LAST_ACTIVITY'] > $this->options->getRememberMeInactive()
         ) {
             $this->defaultSessionManager->destroy(['send_expire_cookie' => true, 'clear_storage' => true]);
             $this->defaultSessionManager->start();
         }
-        $_SESSION['LAST_ACTIVITY'] = $now;
+        $this->defaultSessionManager->getStorage()['LAST_ACTIVITY'] = $now;
         return $handler->handle($request);
     }
 }
