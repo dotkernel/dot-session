@@ -20,13 +20,13 @@
         "psr/http-message": "^1.0.1",
         "laminas/laminas-servicemanager": "^3.11.1",
         "laminas/laminas-session": "^2.12.1",
-        "psr/http-server-middleware": "^1.0.1"
+        "psr/http-server-middleware": "^1.0.1",
+        "laminas/laminas-stdlib": "^3.7.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5.20",
         "laminas/laminas-coding-standard": "^2.5",
         "vimeo/psalm": "^5.13",
-        "laminas/laminas-stdlib": "^3.7.1"
     },
     "autoload": {
         "psr-4": {
