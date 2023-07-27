@@ -8,6 +8,9 @@
 [![GitHub stars](https://img.shields.io/github/stars/dotkernel/dot-session)](https://github.com/dotkernel/dot-session/stargazers)
 [![GitHub license](https://img.shields.io/github/license/dotkernel/dot-session)](https://github.com/dotkernel/dot-session/blob/5.0/LICENSE.md)
 
+[![Build Static](https://github.com/dotkernel/dot-session/actions/workflows/static-analysis.yml/badge.svg?branch=5.0)](https://github.com/dotkernel/dot-session/actions/workflows/static-analysis.yml)
+
+
 [![SymfonyInsight](https://insight.symfony.com/projects/f6038340-d76b-4da8-9016-0472d4899f0a/big.svg)](https://insight.symfony.com/projects/f6038340-d76b-4da8-9016-0472d4899f0a)
 
 

@@ -53,6 +53,6 @@ class ConfigProviderTest extends TestCase
         $this->assertArrayHasKey('session_storage', $this->config);
         $this->assertIsArray($this->config['session_storage']);
         $this->assertArrayHasKey('type', $this->config['session_storage']);
-        $this->assertNotEmpty($this->config['session_storage']['type'] );
+        $this->assertNotEmpty($this->config['session_storage']['type']);
     }
 }
