@@ -26,6 +26,7 @@ class ContainerAbstractServiceFactoryTest extends TestCase
 
     /**
      * @throws Exception
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     protected function setUp(): void
     {

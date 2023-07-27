@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @see https://github.com/dotkernel/dot-session/ for the canonical source repository
- */
-
 declare(strict_types=1);
 
 namespace Dot\Session\Options;

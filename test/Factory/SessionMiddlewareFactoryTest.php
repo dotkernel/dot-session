@@ -20,6 +20,9 @@ class SessionMiddlewareFactoryTest extends TestCase
 {
     private ContainerInterface|MockObject $container;
 
+    /**
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     protected function setUp(): void
     {
         $this->container = $this->createMock(ContainerInterface::class);
@@ -47,6 +50,7 @@ class SessionMiddlewareFactoryTest extends TestCase
     /**
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testWillInstantiateWithManagerInterface(): void
     {

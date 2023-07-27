@@ -37,14 +37,22 @@ class ConfigProviderTest extends TestCase
         $this->assertArrayHasKey(SessionMiddleware::class, $this->config['dependencies']['factories']);
     }
 
-    public function testDependenciesHasAliases()
+    public function testDependenciesHasAliases(): void
     {
         $this->assertArrayHasKey('aliases', $this->config['dependencies']);
         $this->assertArrayHasKey(SessionManager::class, $this->config['dependencies']['aliases']);
     }
 
-    public function testDependenciesHasAbstractFactories()
+    public function testDependenciesHasAbstractFactories(): void
     {
         $this->assertArrayHasKey('abstract_factories', $this->config['dependencies']);
+    }
+
+    public function testConfigHasSessionStorage(): void
+    {
+        $this->assertArrayHasKey('session_storage', $this->config);
+        $this->assertIsArray($this->config['session_storage']);
+        $this->assertArrayHasKey('type', $this->config['session_storage']);
+        $this->assertNotEmpty($this->config['session_storage']['type'] );
     }
 }

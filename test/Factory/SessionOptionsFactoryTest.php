@@ -17,6 +17,9 @@ class SessionOptionsFactoryTest extends TestCase
 {
     private ContainerInterface|MockObject $container;
 
+    /**
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     protected function setUp(): void
     {
         $this->container = $this->createMock(ContainerInterface::class);

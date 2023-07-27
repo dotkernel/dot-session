@@ -7,6 +7,7 @@ namespace DotTest\Session;
 use Dot\Session\Options\SessionOptions;
 use Dot\Session\SessionMiddleware;
 use Laminas\Session\SessionManager;
+use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -19,6 +20,9 @@ class SessionMiddlewareTest extends TestCase
     private SessionManager $sessionManager;
     private SessionOptions $sessionOptions;
 
+    /**
+     * @throws Exception
+     */
     protected function setUp(): void
     {
         $this->sessionManager = $this->createMock(SessionManager::class);
@@ -27,7 +31,10 @@ class SessionMiddlewareTest extends TestCase
         $this->sessionMiddleware = new SessionMiddleware($this->sessionManager, $this->sessionOptions);
     }
 
-    public function testProcess()
+    /**
+     * @throws Exception
+     */
+    public function testProcess(): void
     {
         $requestInterface = $this->createMock(ServerRequestInterface::class);
         $handlerInterface = $this->createMock(RequestHandlerInterface::class);
@@ -35,7 +42,10 @@ class SessionMiddlewareTest extends TestCase
         $this->assertInstanceOf(ResponseInterface::class, $process);
     }
 
-    public function testProcessWithLastActivity()
+    /**
+     * @throws Exception
+     */
+    public function testProcessWithLastActivity(): void
     {
         $this->sessionManager->method('getStorage')
             ->willReturn(['LAST_ACTIVITY' => 1689849724]);
