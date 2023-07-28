@@ -1,3 +1,8 @@
+clover.xml
+coveralls-upload.json
+.phpcs-cache
+.phpunit.result.cache
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Composer template
 composer.phar

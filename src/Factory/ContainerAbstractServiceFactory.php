@@ -1,25 +1,23 @@
 <?php
-/**
- * @see https://github.com/dotkernel/dot-session/ for the canonical source repository
- * @copyright Copyright (c) 2017 Apidemia (https://www.apidemia.com)
- * @license https://github.com/dotkernel/dot-session/blob/master/LICENSE.md MIT License
- */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Dot\Session\Factory;
 
-use Interop\Container\ContainerInterface;
+use Laminas\Session\Container;
+use Psr\Container\ContainerInterface;
 
-/**
- * Class ContainerAbstractServiceFactory
- * @package Dot\Session\Factory
- */
+use function count;
+use function explode;
+
 class ContainerAbstractServiceFactory extends \Laminas\Session\Service\ContainerAbstractServiceFactory
 {
-    const PREFIX = 'dot-session';
+    public const PREFIX = 'dot-session';
 
-    public function canCreate(ContainerInterface $container, $requestedName)
+    /**
+     * @param string $requestedName
+     */
+    public function canCreate(ContainerInterface $container, $requestedName): bool
     {
         $parts = explode('.', $requestedName);
         if (count($parts) !== 2) {
@@ -33,7 +31,10 @@ class ContainerAbstractServiceFactory extends \Laminas\Session\Service\Container
         return parent::canCreate($container, $parts[1]);
     }
 
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    /**
+     * @param string $requestedName
+     */
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): Container
     {
         $parts = explode('.', $requestedName);
         return parent::__invoke($container, $parts[1], $options);

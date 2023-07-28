@@ -1,29 +1,38 @@
 <?php
-/**
- * @see https://github.com/dotkernel/dot-session/ for the canonical source repository
- * @copyright Copyright (c) 2017 Apidemia (https://www.apidemia.com)
- * @license https://github.com/dotkernel/dot-session/blob/master/LICENSE.md MIT License
- */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Dot\Session\Factory;
 
 use Dot\Session\Options\SessionOptions;
+use Exception;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
-/**
- * Class SessionOptionsFactory
- * @package Dot\Session\Factory
- */
+use function is_array;
+
 class SessionOptionsFactory
 {
     /**
-     * @param ContainerInterface $container
-     * @return SessionOptions
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws Exception
      */
-    public function __invoke(ContainerInterface $container)
+    public function __invoke(ContainerInterface $container): SessionOptions
     {
-        return new SessionOptions($container->get('config')['dot_session']);
+        if (! $container->has('config')) {
+            throw new Exception('Unable to find config');
+        }
+
+        $config = $container->get('config');
+
+        if (! isset($config['dot_session']) || ! is_array($config['dot_session'])) {
+            throw new Exception('Unable to find dot_session config');
+        }
+
+        $config = $config['dot_session'];
+
+        return new SessionOptions($config);
     }
 }
