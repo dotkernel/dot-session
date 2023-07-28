@@ -8,6 +8,7 @@ use Dot\Session\Options\SessionOptions;
 use Dot\Session\SessionMiddleware;
 use Laminas\Session\SessionManager;
 use PHPUnit\Framework\MockObject\Exception;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -17,8 +18,8 @@ class SessionMiddlewareTest extends TestCase
 {
     private SessionMiddleware $sessionMiddleware;
 
-    private SessionManager $sessionManager;
-    private SessionOptions $sessionOptions;
+    private SessionManager|MockObject $sessionManager;
+    private SessionOptions|MockObject $sessionOptions;
 
     /**
      * @throws Exception

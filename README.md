@@ -10,7 +10,6 @@
 
 [![Build Static](https://github.com/dotkernel/dot-session/actions/workflows/static-analysis.yml/badge.svg?branch=5.0)](https://github.com/dotkernel/dot-session/actions/workflows/static-analysis.yml)
 
-
 [![SymfonyInsight](https://insight.symfony.com/projects/f6038340-d76b-4da8-9016-0472d4899f0a/big.svg)](https://insight.symfony.com/projects/f6038340-d76b-4da8-9016-0472d4899f0a)
 
 
@@ -19,25 +18,26 @@ DotKernel session component extending and customizing [laminas-session](https://
 ## Installation
 
 Run the following command in your project folder
-```bash
-$ composer require dotkernel/dot-session
-```
+
+    composer require dotkernel/dot-session
+
+
 ## Configuration
+Register `SessionMiddleware` in your application's pipeline by adding the following line to `config/pipeline.php`:
 
-Add this:
+    $app->pipe(Dot\Session\SessionMiddleware::class);
 
-    $app->pipe(Dot\Session\SessionMiddleware::class)  to config/pipeline.php
 
-    \Dot\Session\ConfigProvider::class to config/config.php
+Register `dot-session`'s ConfigProvider in your application's configurations by adding the following line to `config/config.php`:
+
+    \Dot\Session\ConfigProvider::class,
 
 
 ## Usage
-
-Basic usage to access and use the session object in your services
+Basic usage to access and use the session object in your services:
 
 ### Method #1 - Factory
-Step 1
-Create a factory that retrieves from container the SessionManger
+#### Step 1: Create a factory that retrieves the SessionManger from the container
 
 ```php
 class ExampleFactory
@@ -46,7 +46,6 @@ class ExampleFactory
     
     public function __invoke(ContainerInterface $container)
     {
-        //return Session Service with  Session Manager from container
         return new ExampleService(
             $container->get(SessionManager::class)
         )
@@ -56,7 +55,7 @@ class ExampleFactory
 
 Register the factory in any mode you register factories on your project.
 
-Step 2 Access through your Service
+#### Step 2: Access through your Service
 
 ```php
 
@@ -77,6 +76,9 @@ class ExampleService
 If you use annotated injection you can inject the Session Manager in your services.
 
 ```php
+use Dot\AnnotatedServices\Annotation\Inject;
+use Laminas\Session\SessionManager;
+
 class ExampleService
 {
     private SessionManager $session;
@@ -89,6 +91,6 @@ class ExampleService
         $this->session = $session;
     }
     
-     //you methods
+     //your methods
 }
 ```
