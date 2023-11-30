@@ -6,6 +6,10 @@ namespace Dot\Session\Options;
 
 use Laminas\Stdlib\AbstractOptions;
 
+/**
+ * @template TValue
+ * @template-extends AbstractOptions<TValue>
+ */
 class SessionOptions extends AbstractOptions
 {
     protected int $rememberMeInactive = 1800;
