@@ -1,4 +1,5 @@
 # Configuration
+
 Register `SessionMiddleware` in your application's pipeline by adding the following line to `config/pipeline.php`:
 
     $app->pipe(Dot\Session\SessionMiddleware::class);

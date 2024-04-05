@@ -19,17 +19,23 @@ DotKernel session component extending and customizing [laminas-session](https://
 
 Run the following command in your project folder
 
+```bash
     composer require dotkernel/dot-session
+```
 
 ## Configuration
 
 Register `SessionMiddleware` in your application's pipeline by adding the following line to `config/pipeline.php`:
 
+```php
     $app->pipe(Dot\Session\SessionMiddleware::class);
+```
 
 Register `dot-session`'s ConfigProvider in your application's configurations by adding the following line to `config/config.php`:
 
+```php
     \Dot\Session\ConfigProvider::class,
+```
 
 ## Usage
 
