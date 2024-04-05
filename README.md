@@ -13,7 +13,6 @@
 
 [![SymfonyInsight](https://insight.symfony.com/projects/f6038340-d76b-4da8-9016-0472d4899f0a/big.svg)](https://insight.symfony.com/projects/f6038340-d76b-4da8-9016-0472d4899f0a)
 
-
 DotKernel session component extending and customizing [laminas-session](https://github.com/laminas/laminas-session)
 
 ## Installation
@@ -22,22 +21,22 @@ Run the following command in your project folder
 
     composer require dotkernel/dot-session
 
-
 ## Configuration
+
 Register `SessionMiddleware` in your application's pipeline by adding the following line to `config/pipeline.php`:
 
     $app->pipe(Dot\Session\SessionMiddleware::class);
-
 
 Register `dot-session`'s ConfigProvider in your application's configurations by adding the following line to `config/config.php`:
 
     \Dot\Session\ConfigProvider::class,
 
-
 ## Usage
+
 Basic usage to access and use the session object in your services:
 
 ### Method #1 - Factory
+
 #### Step 1: Create a factory that retrieves the SessionManger from the container
 
 ```php
@@ -69,11 +68,12 @@ class ExampleService
         $this->session = $session;
     }
     
-     //you methods
+     //your methods
 }
 ```
 
-### Method 2 - Injection
+### Method #2 - Injection
+
 If you use annotated injection you can inject the Session Manager in your services.
 
 ```php

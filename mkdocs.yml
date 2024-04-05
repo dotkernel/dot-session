@@ -1,0 +1,21 @@
+docs_dir: docs/book
+site_dir: docs/html
+extra:
+  project: Packages
+  current_version: v5
+  versions:
+    - v5
+nav:
+  - Home: index.md
+  - v5:
+      - Overview: v5/installation.md
+      - Installation: v5/configuration.md
+      - Usage: v5/usage.md
+      - Reference:
+          - "Inject class dependencies": v5/usage/factory.md
+          - "Inject entity repositories": v5/usage/injection.md
+site_name: dot-session
+site_description: "DotKernel's session component"
+repo_url: "https://github.com/dotkernel/dot-session"
+plugins:
+  - search
