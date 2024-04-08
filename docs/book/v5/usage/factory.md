@@ -16,8 +16,6 @@ class ExampleFactory
 }
 ```
 
-Register the factory in any mode you register factories on your project.
-
 ## Step 2: Access through your Service
 
 ```php
@@ -32,5 +30,40 @@ class ExampleService
     }
     
      //your methods
+}
+```
+
+## Step 3: Register the factory
+
+Open the ConfigProvider of the module where your repository resides.
+
+Add a new entry under `factories`, where the key is your service's FQCN and the value is your factory's FQCN.
+
+See below example for a better understanding of the file structure.
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace YourApp;
+
+class ConfigProvider
+{
+    public function __invoke(): array
+    {
+        return [
+            'dependencies' => $this->getDependencies(),
+        ];
+    }
+
+    public function getDependencies(): array
+    {
+        return [
+            'factories' => [
+                ExampleService::class => ExampleFactory::class,
+            ],
+        ];
+    }
 }
 ```

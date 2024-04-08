@@ -1,17 +1,19 @@
 # Method #2 - Injection
 
-If you use annotated injection you can inject the Session Manager in your services.
+If you are using [dot-annotated-services](https://github.com/dotkernel/dot-annotated-services/) in your project, you don't need to create a separate factory, just follow the below steps.
+
+## Step 1: Access through your Service
 
 ```php
-use Dot\AnnotatedServices\Annotation\Inject;
-use Laminas\Session\SessionManager;
 
 class ExampleService
 {
     private SessionManager $session;
     
-     /**
-     * @Inject({SessionManager::class})
+    /**
+     * @Dot\AnnotatedServices\Annotation\Inject({
+     *     SessionManager::class,
+     * })
      */
     public function __construct(SessionManager $session) 
     {
@@ -19,5 +21,40 @@ class ExampleService
     }
     
      //your methods
+}
+```
+
+## Step 2: Register your service
+
+Open the ConfigProvider of the module where your repository resides.
+
+Add a new entry under `factories`, where the key is your service's FQCN and the value is `Dot\AnnotatedServices\Factory\AbstractAnnotatedFactory`.
+
+See below example for a better understanding of the file structure.
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace YourApp;
+
+class ConfigProvider
+{
+    public function __invoke(): array
+    {
+        return [
+            'dependencies' => $this->getDependencies(),
+        ];
+    }
+
+    public function getDependencies(): array
+    {
+        return [
+            'factories' => [
+                ExampleService::class => AbstractAnnotatedFactory::class,
+            ],
+        ];
+    }
 }
 ```
