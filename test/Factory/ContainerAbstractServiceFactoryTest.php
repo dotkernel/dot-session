@@ -43,8 +43,9 @@ class ContainerAbstractServiceFactoryTest extends TestCase
 
         $this->container->expects($this->once())
             ->method('get')
-            ->with(ManagerInterface::class)
-            ->willReturnMap([ManagerInterface::class]);
+            ->willReturnMap([
+                [ManagerInterface::class => ManagerInterface::class]
+            ]);
 
         $factory = (new ContainerAbstractServiceFactory())($this->container, 'dot-session.test');
         $this->assertInstanceOf(Container::class, $factory);
