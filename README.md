@@ -1,5 +1,10 @@
 # dot-session
 
+> [!IMPORTANT]
+> dot-session is a wrapper on top of [laminas-session](https://github.com/laminas/laminas-session)
+>
+> ![OSS Lifecycle](https://img.shields.io/osslifecycle/laminas/laminas-session)
+
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-session)
 ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-session/5.4.2)
 
