@@ -1,12 +1,16 @@
 # dot-session
 
-> [!IMPORTANT]
-> dot-session is a wrapper on top of [laminas/laminas-session](https://github.com/laminas/laminas-session)
->
-> ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2Flaminas%2Flaminas-session%2Fproperties%2Fvalues&query=%24%5B%3F(%40.property_name%3D%3D%22maintenance-mode%22)%5D.value&label=Maintenance%20Mode)
+Dotkernel session component extending and customizing [laminas-session](https://github.com/laminas/laminas-session)
 
+> dot-session is a wrapper on top of [laminas/laminas-session](https://github.com/laminas/laminas-session)
+
+## Documentation
+
+Documentation is available at: https://docs.dotkernel.org/dot-session/.
+
+## Badges
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-session)
-![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-session/5.4.2)
+![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-session/5.5.0)
 
 [![GitHub issues](https://img.shields.io/github/issues/dotkernel/dot-session)](https://github.com/dotkernel/dot-session/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dotkernel/dot-session)](https://github.com/dotkernel/dot-session/network)
@@ -15,10 +19,7 @@
 
 [![Build Static](https://github.com/dotkernel/dot-session/actions/workflows/continuous-integration.yml/badge.svg?branch=5.0)](https://github.com/dotkernel/dot-session/actions/workflows/continuous-integration.yml)
 [![codecov](https://codecov.io/gh/dotkernel/dot-session/graph/badge.svg?token=DCHKH0R4AA)](https://codecov.io/gh/dotkernel/dot-session)
-
-[![SymfonyInsight](https://insight.symfony.com/projects/f6038340-d76b-4da8-9016-0472d4899f0a/big.svg)](https://insight.symfony.com/projects/f6038340-d76b-4da8-9016-0472d4899f0a)
-
-DotKernel session component extending and customizing [laminas-session](https://github.com/laminas/laminas-session)
+[![PHPStan](https://github.com/dotkernel/dot-session/actions/workflows/static-analysis.yml/badge.svg?branch=5.0)](https://github.com/dotkernel/dot-session/actions/workflows/static-analysis.yml)
 
 ## Installation
 

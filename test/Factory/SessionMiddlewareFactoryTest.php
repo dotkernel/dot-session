@@ -44,7 +44,7 @@ class SessionMiddlewareFactoryTest extends TestCase
 
         $factory = (new SessionMiddlewareFactory())($this->container);
 
-        $this->assertInstanceOf(SessionMiddleware::class, $factory);
+        $this->assertSame(SessionMiddleware::class, $factory::class);
     }
 
     /**
@@ -67,7 +67,7 @@ class SessionMiddlewareFactoryTest extends TestCase
 
         $factory = (new SessionMiddlewareFactory())($this->container);
 
-        $this->assertInstanceOf(SessionMiddleware::class, $factory);
+        $this->assertSame(SessionMiddleware::class, $factory::class);
     }
 
     /**

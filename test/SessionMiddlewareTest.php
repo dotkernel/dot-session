@@ -40,7 +40,7 @@ class SessionMiddlewareTest extends TestCase
         $requestInterface = $this->createMock(ServerRequestInterface::class);
         $handlerInterface = $this->createMock(RequestHandlerInterface::class);
         $process          = $this->sessionMiddleware->process($requestInterface, $handlerInterface);
-        $this->assertInstanceOf(ResponseInterface::class, $process);
+        $this->assertContainsOnlyInstancesOf(ResponseInterface::class, [$process]);
     }
 
     /**
@@ -57,6 +57,6 @@ class SessionMiddlewareTest extends TestCase
         $requestInterface = $this->createMock(ServerRequestInterface::class);
         $handlerInterface = $this->createMock(RequestHandlerInterface::class);
         $process          = $this->sessionMiddleware->process($requestInterface, $handlerInterface);
-        $this->assertInstanceOf(ResponseInterface::class, $process);
+        $this->assertContainsOnlyInstancesOf(ResponseInterface::class, [$process]);
     }
 }
