@@ -9,6 +9,7 @@ Dotkernel session component extending and customizing [laminas-session](https://
 Documentation is available at: https://docs.dotkernel.org/dot-session/.
 
 ## Badges
+
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-session)
 ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-session/5.5.0)
 
