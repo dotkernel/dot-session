@@ -34,6 +34,9 @@ class ContainerAbstractServiceFactoryTest extends TestCase
         $this->factory   = new ContainerAbstractServiceFactory();
     }
 
+    /**
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testInstantiate(): void
     {
         $this->container->expects($this->once())
@@ -41,12 +44,10 @@ class ContainerAbstractServiceFactoryTest extends TestCase
             ->with(ManagerInterface::class)
             ->willReturn(true);
 
-        $managerMock = $this->createMock(ManagerInterface::class);
-
         $this->container->expects($this->once())
             ->method('get')
             ->willReturnMap([
-                [ManagerInterface::class, $managerMock],
+                [ManagerInterface::class, $this->createMock(ManagerInterface::class)],
             ]);
 
         $factory = (new ContainerAbstractServiceFactory())($this->container, 'dot-session.test');
