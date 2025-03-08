@@ -1,7 +1,7 @@
 {
     "name": "dotkernel/dot-session",
     "type": "library",
-    "description": "DotKernel session component extending and customizing laminas-session",
+    "description": "Dotkernel session component extending and customizing laminas-session",
     "license": "MIT",
     "homepage": "https://github.com/dotkernel/dot-session",
     "keywords": [
@@ -11,7 +11,7 @@
     ],
     "authors": [
         {
-            "name": "DotKernel Team",
+            "name": "Dotkernel Team",
             "email": "team@dotkernel.com"
         }
     ],
@@ -24,9 +24,10 @@
         "psr/http-server-middleware": "^1.0.2"
     },
     "require-dev": {
-        "laminas/laminas-coding-standard": "^2.5.0",
-        "phpunit/phpunit": "^10.4.2",
-        "vimeo/psalm": "^5.16.0"
+        "laminas/laminas-coding-standard": "^3.0.0",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpunit/phpunit": "^10.4.2"
     },
     "autoload": {
         "psr-4": {
@@ -41,19 +42,18 @@
     "scripts": {
         "check": [
             "@cs-check",
-            "@test"
+            "@test",
+            "@static-analysis"
         ],
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
         "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
-        "static-analysis": "psalm --shepherd --stats"
+        "static-analysis": "phpstan analyse --memory-limit 1G"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "laminas/laminas-dependency-plugin": false
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     }
 }

@@ -76,6 +76,6 @@ class SessionOptionsFactoryTest extends TestCase
 
         $factory = (new SessionOptionsFactory())($this->container);
 
-        $this->assertInstanceOf(SessionOptions::class, $factory);
+        $this->assertSame(SessionOptions::class, $factory::class);
     }
 }
