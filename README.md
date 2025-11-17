@@ -11,7 +11,7 @@ Documentation is available at: https://docs.dotkernel.org/dot-session/.
 ## Badges
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-session)
-![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-session/5.7.0)
+![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-session/5.8.0)
 
 [![GitHub issues](https://img.shields.io/github/issues/dotkernel/dot-session)](https://github.com/dotkernel/dot-session/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dotkernel/dot-session)](https://github.com/dotkernel/dot-session/network)
@@ -24,87 +24,8 @@ Documentation is available at: https://docs.dotkernel.org/dot-session/.
 
 ## Installation
 
-Run the following command in your project folder
+Run the following Composer command in your project folder:
 
-```bash
-    composer require dotkernel/dot-session
-```
-
-## Configuration
-
-Register `SessionMiddleware` in your application's pipeline by adding the following line to `config/pipeline.php`:
-
-```php
-    $app->pipe(Dot\Session\SessionMiddleware::class);
-```
-
-Register `dot-session`'s ConfigProvider in your application's configurations by adding the following line to `config/config.php`:
-
-```php
-    \Dot\Session\ConfigProvider::class,
-```
-
-## Usage
-
-Basic usage to access and use the session object in your services:
-
-### Method #1 - Factory
-
-#### Step 1: Create a factory that retrieves the SessionManger from the container
-
-```php
-class ExampleFactory
-{
-    // code
-    
-    public function __invoke(ContainerInterface $container)
-    {
-        return new ExampleService(
-            $container->get(SessionManager::class)
-        )
-    }
-}
-```
-
-Register the factory in any mode you register factories on your project.
-
-#### Step 2: Access through your Service
-
-```php
-
-class ExampleService
-{
-    private SessionManager $session;
-    
-    public function __construct(SessionManager $session) 
-    {
-        $this->session = $session;
-    }
-    
-     //your methods
-}
-```
-
-### Method #2 - Injection
-
-If you use annotated injection you can inject the Session Manager in your services.
-
-```php
-use Dot\AnnotatedServices\Annotation\Inject;
-use Laminas\Session\SessionManager;
-
-class ExampleService
-{
-    private SessionManager $session;
-    
-     /**
-     * @Inject({SessionManager::class})
-     */
-    public function __construct(SessionManager $session) 
-    {
-        $this->session = $session;
-    }
-    
-     //your methods
-}
+```shell
+composer require dotkernel/dot-session
 ```

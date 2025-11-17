@@ -1,5 +1,7 @@
 # Installation
 
-Run the following command in your project folder
+Run the following Composer command in your project folder:
 
-    composer require dotkernel/dot-session
+```shell
+composer require dotkernel/dot-session
+```

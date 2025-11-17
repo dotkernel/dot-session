@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Dot\Session;
 
-use Dot\Session\Factory\ContainerAbstractServiceFactory;
 use Dot\Session\Factory\SessionMiddlewareFactory;
 use Dot\Session\Factory\SessionOptionsFactory;
 use Dot\Session\Options\SessionOptions;
@@ -37,18 +36,15 @@ class ConfigProvider
     public function getDependencyConfig(): array
     {
         return [
-            'aliases'            => [
+            'aliases'   => [
                 SessionManager::class => ManagerInterface::class,
             ],
-            'factories'          => [
+            'factories' => [
                 ConfigInterface::class   => SessionConfigFactory::class,
                 ManagerInterface::class  => SessionManagerFactory::class,
                 StorageInterface::class  => StorageFactory::class,
                 SessionOptions::class    => SessionOptionsFactory::class,
                 SessionMiddleware::class => SessionMiddlewareFactory::class,
-            ],
-            'abstract_factories' => [
-                ContainerAbstractServiceFactory::class,
             ],
         ];
     }
