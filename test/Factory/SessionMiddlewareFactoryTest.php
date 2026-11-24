@@ -54,7 +54,7 @@ class SessionMiddlewareFactoryTest extends TestCase
      */
     public function testWillInstantiateWithManagerInterface(): void
     {
-        $managerInterface = $this->createMock(SessionManager::class);
+        $managerInterface = $this->createStub(SessionManager::class);
         $this->container->expects($this->once())->method('has')
             ->with(ManagerInterface::class)
             ->willReturn(true);

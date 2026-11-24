@@ -8,7 +8,7 @@ use Dot\Session\Options\SessionOptions;
 use Dot\Session\SessionMiddleware;
 use Laminas\Session\SessionManager;
 use PHPUnit\Framework\MockObject\Exception;
-use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -18,16 +18,16 @@ class SessionMiddlewareTest extends TestCase
 {
     private SessionMiddleware $sessionMiddleware;
 
-    private SessionManager|MockObject $sessionManager;
-    private SessionOptions|MockObject $sessionOptions;
+    private SessionManager|Stub $sessionManager;
+    private SessionOptions|Stub $sessionOptions;
 
     /**
      * @throws Exception
      */
     protected function setUp(): void
     {
-        $this->sessionManager = $this->createMock(SessionManager::class);
-        $this->sessionOptions = $this->createMock(SessionOptions::class);
+        $this->sessionManager = $this->createStub(SessionManager::class);
+        $this->sessionOptions = $this->createStub(SessionOptions::class);
 
         $this->sessionMiddleware = new SessionMiddleware($this->sessionManager, $this->sessionOptions);
     }
@@ -37,8 +37,8 @@ class SessionMiddlewareTest extends TestCase
      */
     public function testProcess(): void
     {
-        $requestInterface = $this->createMock(ServerRequestInterface::class);
-        $handlerInterface = $this->createMock(RequestHandlerInterface::class);
+        $requestInterface = $this->createStub(ServerRequestInterface::class);
+        $handlerInterface = $this->createStub(RequestHandlerInterface::class);
         $process          = $this->sessionMiddleware->process($requestInterface, $handlerInterface);
         $this->assertContainsOnlyInstancesOf(ResponseInterface::class, [$process]);
     }
@@ -54,8 +54,8 @@ class SessionMiddlewareTest extends TestCase
         $this->sessionOptions->method('getRememberMeInactive')
             ->willReturn(600);
 
-        $requestInterface = $this->createMock(ServerRequestInterface::class);
-        $handlerInterface = $this->createMock(RequestHandlerInterface::class);
+        $requestInterface = $this->createStub(ServerRequestInterface::class);
+        $handlerInterface = $this->createStub(RequestHandlerInterface::class);
         $process          = $this->sessionMiddleware->process($requestInterface, $handlerInterface);
         $this->assertContainsOnlyInstancesOf(ResponseInterface::class, [$process]);
     }
